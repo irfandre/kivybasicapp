@@ -67,6 +67,8 @@ RUN pip install kivy
 
 WORKDIR /home/kivy/
 
-ADD main.py buildozer.spec /home/kivy/
+RUN git clone https://github.com/irfandre/kivybasicapp.git tmp
+
+RUN mv tmp/.git/ . && rm -rf tmp/ && git reset --hard HEAD
 
 CMD bash
